@@ -27,4 +27,17 @@ public class Stack<T> : IStack<T>
     {
         _stack.Push(item);
     }
+
+    public DoublyLinkedList<T> ToDoublyLinkedList()
+    {
+        var linkedList = new DoublyLinkedList<T>();
+
+        while (Count > 0)
+        {
+            var item = Pop();
+            linkedList.AddLast(item);
+        }
+
+        return linkedList;
+    }
 }

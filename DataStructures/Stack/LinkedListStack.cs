@@ -46,10 +46,12 @@ public class LinkedListStack<T> : IStack<T>
     {
         var linkedList = new DoublyLinkedList<T>();
 
-        while (Count > 0)
+        var current = _innerList.Head;
+
+        while (current != null)
         {
-            var item = Pop();
-            linkedList.AddLast(item);
+            linkedList.AddLast(current.Value);
+            current = current.Next;
         }
 
         return linkedList;
